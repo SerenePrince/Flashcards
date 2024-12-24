@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
+import { useEffect } from "react";
 
-// Section Component
+// Reusable Section Component
 const Section = ({ id, title, children }) => (
   <section id={id} className="mb-16">
     <h2 className="text-3xl font-semibold mb-6">{title}</h2>
@@ -15,13 +16,38 @@ Section.propTypes = {
 };
 
 function Guide() {
+  useEffect(() => {
+    // Scroll to the appropriate section if a hash is present in the URL
+    const handleScrollToSection = () => {
+      const hash = window.location.hash;
+      if (hash) {
+        const element = document.querySelector(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    };
+
+    // Initial execution on mount
+    handleScrollToSection();
+
+    // Update scrolling behavior on hash change
+    window.addEventListener("hashchange", handleScrollToSection);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener("hashchange", handleScrollToSection);
+    };
+  }, []);
+
   return (
     <div className="text-white py-12 px-8 bg-black">
       <div className="max-w-[70%] mx-auto">
         <h1 className="text-4xl font-bold text-center mb-10">
-          Guide to Your Flashcard App
+          Comprehensive Guide to Your Flashcard App
         </h1>
 
+        {/* Navigation Table */}
         <table className="w-full border-collapse mb-12 shadow-lg">
           <thead>
             <tr className="bg-gray-800 text-white">
@@ -38,27 +64,27 @@ function Guide() {
               {
                 href: "#create-deck",
                 text: "Create Your First Deck",
-                desc: "Learn how to create and save your first set of flashcards.",
+                desc: "Step-by-step guide to creating and saving your first flashcard set.",
               },
               {
                 href: "#library",
                 text: "Library",
-                desc: "Manage your decks, import, export, and more.",
+                desc: "Manage your decks: create, import, export, or update them.",
               },
               {
                 href: "#save",
                 text: "Save",
-                desc: "Understand how your decks are saved and stored.",
+                desc: "Learn about how and where your decks are stored for safety.",
               },
               {
                 href: "#controls",
                 text: "Controls",
-                desc: "Navigate and interact with your flashcards efficiently.",
+                desc: "Explore key controls and shortcuts for better navigation.",
               },
               {
                 href: "#spaced-repetition",
                 text: "Spaced Repetition",
-                desc: "Learn about the benefits of this learning technique.",
+                desc: "Understand the science behind this powerful learning technique.",
               },
             ].map((row, index) => (
               <tr
@@ -80,64 +106,82 @@ function Guide() {
           </tbody>
         </table>
 
+        {/* Sections */}
         <Section id="create-deck" title="Create Your First Deck">
           <p>Follow these steps to create a new deck:</p>
           <ol className="list-decimal ml-8 space-y-2">
             <li>
-              Navigate to the <strong>Library</strong>.
+              Go to the <strong>Library</strong> section from the main menu.
             </li>
             <li>
-              Click <strong>Create Deck</strong>.
+              Click on the <strong>Create Deck</strong> button.
             </li>
             <li>
-              Provide a <strong>title</strong> and an optional{" "}
+              Fill out the <strong>title</strong> and add an optional{" "}
               <strong>description</strong>.
             </li>
-            <li>Add questions and answers to your deck.</li>
+            <li>Add questions and answers for your flashcards.</li>
             <li>
-              Click <strong>Save Deck</strong> to finish.
+              Click <strong>Save Deck</strong> to finalize your deck.
             </li>
           </ol>
         </Section>
 
         <Section id="library" title="Library">
           <p>
-            The <strong>Library</strong> is your hub for managing decks:
+            The <strong>Library</strong> is your centralized hub for deck
+            management:
           </p>
           <ul className="list-disc ml-8 space-y-2">
-            <li>Create, delete, or update decks.</li>
-            <li>Import decks using a JSON template.</li>
-            <li>Export decks to share or back up your data.</li>
+            <li>Create new decks for your study sessions.</li>
+            <li>Delete or update existing decks as needed.</li>
+            <li>Import decks using the provided JSON template format.</li>
+            <li>Export your decks to share or back up your progress.</li>
           </ul>
         </Section>
 
         <Section id="save" title="Save">
-          <p>All decks are saved locally in your browser. To avoid issues:</p>
+          <p>
+            Your flashcards are securely stored locally in your browser. Key
+            tips:
+          </p>
           <ul className="list-disc ml-8 space-y-2">
             <li>
-              Keep your data size under <strong>5MB</strong>.
+              Keep your total data size under <strong>5MB</strong> to prevent
+              issues.
             </li>
-            <li>Export decks for backup when nearing the limit.</li>
+            <li>Export your decks regularly to back up your progress.</li>
           </ul>
         </Section>
 
         <Section id="controls" title="Controls">
-          <p>Here’s how to navigate and interact with your flashcards:</p>
+          <p>Master these controls for seamless interaction:</p>
           <ul className="list-disc ml-8 space-y-2">
             <li>
-              Use <strong>Next</strong> and <strong>Previous</strong> buttons to
-              browse cards.
+              Use the <strong>Next</strong> and <strong>Previous</strong>{" "}
+              buttons to navigate between cards.
             </li>
             <li>
-              Hold the <strong>Spacebar</strong> to flip a card.
+              Press the <strong>Spacebar</strong> to flip a card and reveal the
+              answer.
             </li>
           </ul>
         </Section>
 
         <Section id="spaced-repetition" title="Spaced Repetition">
           <p>
-            Spaced repetition helps you retain information by reviewing cards at
-            strategic intervals.
+            Spaced repetition enhances memory retention by revisiting
+            information at calculated intervals, just before it&apos;s
+            forgotten. This method is scientifically proven to:
+          </p>
+          <ul className="list-disc ml-8 space-y-2">
+            <li>Improve recall and reinforce learning efficiently.</li>
+            <li>Reduce cognitive load by optimizing study time.</li>
+            <li>Align with the brain&apos;s natural learning rhythms.</li>
+          </ul>
+          <p>
+            Use this feature in your flashcard app to maximize your learning
+            potential!
           </p>
         </Section>
       </div>

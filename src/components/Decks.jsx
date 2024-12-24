@@ -10,13 +10,11 @@ import {
 
 function HeaderSection() {
   return (
-    <section className="bg-lightlavender py-6 px-6 flex items-center">
-      <div className="inline-flex flex-row justify-between items-center max-w-[70%] mx-auto w-full">
-        <div className="flex-col text-left">
-          <h1 className="text-3xl font-bold mb-4 inline-block">
-            My Flashcard Decks
-          </h1>
-          <div className="inline-flex space-x-4">
+    <section className="bg-lightlavender py-6 px-6">
+      <div className="flex flex-col items-center max-w-[70%] mx-auto w-full">
+        <div className="text-left w-full">
+          <h1 className="text-3xl font-bold mb-4">My Flashcard Decks</h1>
+          <div className="flex flex-wrap gap-4 justify-start">
             <ActionButton to="/create" icon={FaPlusCircle} text="Create Deck" />
             <ActionButton to="/update" icon={FaEdit} text="Update Deck" />
             <ActionButton to="/delete" icon={FaTrashAlt} text="Delete Deck" />
@@ -80,7 +78,7 @@ DeckCard.propTypes = {
 
 function DeckList({ decks, onSelect }) {
   return decks.length > 0 ? (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
       {decks.map((deck, id) => (
         <DeckCard key={id} deck={deck} onSelect={onSelect} />
       ))}

@@ -11,9 +11,9 @@ import { Link } from "react-router-dom";
 
 function IntroSection() {
   return (
-    <section className="bg-lightred py-6 px-6 flex items-center h-screen">
-      <div className="inline-flex flex-row justify-between items-center max-w-[75%] mx-auto">
-        <div className="flex-col text-left mr-8">
+    <section className="bg-lightred py-6 px-6 flex items-center">
+      <div className="flex flex-col lg:flex-row justify-between items-center max-w-[75%] mx-auto">
+        <div className="flex flex-col text-left lg:mr-8 mb-6 lg:mb-0">
           <h1 className="text-3xl font-bold mb-4">
             Build Flashcards That Match Your Learning Style
           </h1>
@@ -33,6 +33,7 @@ function IntroSection() {
           question={"Write down your questions"}
           answer={"See your answers"}
           gradient={["from-lightgreen to-lightblue"]}
+          className="w-full lg:w-auto"
         />
       </div>
     </section>
@@ -49,15 +50,15 @@ function FeatureSection({
   buttonGradient,
 }) {
   return (
-    <section className={`py-12 px-6 flex items-center ${background}`}>
-      <div className="inline-flex flex-row justify-between items-center max-w-[60%] mx-auto">
-        <Icon className="text-9xl mr-10" />
-        <div className="flex-col text-left">
+    <section className={`py-12 px-6 ${background}`}>
+      <div className="flex flex-col lg:flex-row items-center max-w-[80%] mx-auto">
+        <Icon className="text-7xl mb-6 lg:mb-0 lg:mr-10" />
+        <div className="flex flex-col text-center lg:text-left">
           <h1 className="text-3xl font-bold mb-4">{title}</h1>
-          <p className="text-lg">{description}</p>
+          <p className="text-lg mb-4">{description}</p>
           <Link to={link}>
             <button
-              className={`mt-4 py-2 bg-gradient-to-r ${buttonGradient} from-40% px-6 rounded-lg shadow-md transition-all duration-200 ease-in-out transform hover:shadow-lg hover:scale-105`}
+              className={`py-2 bg-gradient-to-r ${buttonGradient} px-6 rounded-lg shadow-md transition-all duration-200 ease-in-out transform hover:shadow-lg hover:scale-105`}
             >
               {buttonText}
             </button>
