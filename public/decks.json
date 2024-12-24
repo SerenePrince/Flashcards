@@ -1,0 +1,58 @@
+{
+    "decks": [
+        {
+            "id": 1,
+            "name": "Datatypes",
+            "description": "A deck about basic data types in Java.",
+            "cards": [
+                {
+                    "id": 1,
+                    "question": "What is a boolean?",
+                    "answer": "A data type that can be either true or false."
+                },
+                {
+                    "id": 2,
+                    "question": "What is a byte?",
+                    "answer": "A data type that typically represents 8 bits of data."
+                },
+                {
+                    "id": 3,
+                    "question": "What is a char?",
+                    "answer": "A data type used to store a single character."
+                },
+                {
+                    "id": 4,
+                    "question": "What is a short?",
+                    "answer": "A data type for storing smaller integers."
+                },
+                {
+                    "id": 5,
+                    "question": "What is an int?",
+                    "answer": "A data type for storing integers."
+                },
+                {
+                    "id": 6,
+                    "question": "What is a long?",
+                    "answer": "A data type for storing larger integers."
+                },
+                {
+                    "id": 7,
+                    "question": "What is a double?",
+                    "answer": "A data type for storing decimal numbers."
+                }
+            ]
+        },
+        {
+        "id": 2,
+        "name": "Object-Oriented Programming",
+        "description": "A deck about the four principles of OOP.",
+        "cards": [
+            {
+                "id": 1,
+                "question": "What is a polymorphism?",
+                "answer": "A data type that can be either true or false."
+            }
+        ]
+        }
+    ]
+}
