@@ -55,7 +55,9 @@ The app will open in your default browser at `http://localhost:[PORT]`.
 
 ## Screenshots
 
-*Include some screenshots of the app interface here to give users a preview of the design and functionality.*
+![image](https://github.com/user-attachments/assets/42455228-b004-4b0a-8743-cdb243ea0993)
+![image](https://github.com/user-attachments/assets/1bb2fd98-c4c6-4205-82d8-e2ccf661841c)
+
 
 ## Future Improvements
 
