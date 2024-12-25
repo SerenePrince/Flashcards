@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <header className="bg-darkblue p-5 flex flex-col sm:flex-row justify-between items-center text-white shadow-md">
+    <header className="bg-darkblue p-5 flex flex-col sm:flex-row justify-center sm:justify-between items-center text-white shadow-md">
       {/* Title */}
       <Link to="/" className="font-bold text-3xl mb-4 sm:mb-0">
         Flashcards
@@ -11,7 +11,7 @@ function Header() {
 
       {/* Navigation */}
       <nav className="w-full">
-        <ul className="flex flex-col sm:flex-row sm:space-x-6 space-y-4 sm:space-y-0 sm:justify-end">
+        <ul className="flex flex-col sm:flex-row sm:space-x-6 space-y-4 sm:space-y-0 sm:justify-end items-center sm:items-center">
           <li>
             <Link
               to="/"
