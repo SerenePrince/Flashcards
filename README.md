@@ -2,7 +2,11 @@
 
 # Flashcard Web App
 
+![Flashcards](https://github.com/user-attachments/assets/fa10130e-1f26-4c23-b59c-8c4191955ae7)
+
 A simple and intuitive flashcard web application that allows users to create, update, and manage custom flashcard decks for efficient studying. The app features local data storage and the ability to import/export flashcard decks using JSON files, providing a seamless and personalized study experience.
+
+![Try it now!](https://sereneprince.github.io/Flashcards)
 
 ## Features
 
