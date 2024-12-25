@@ -60,7 +60,7 @@ function App() {
       <Header />
       <ScrollToTop />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/Flashcards" element={<Home />} />
         <Route
           path="/library"
           element={<Decks decks={decks} setSelectedDeck={setSelectedDeck} />}

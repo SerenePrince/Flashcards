@@ -5,7 +5,7 @@ function Header() {
   return (
     <header className="bg-darkblue p-5 flex flex-col sm:flex-row justify-center sm:justify-between items-center text-white shadow-md">
       {/* Title */}
-      <Link to="/" className="font-bold text-3xl mb-4 sm:mb-0">
+      <Link to="/Flashcards" className="font-bold text-3xl mb-4 sm:mb-0">
         Flashcards
       </Link>
 
