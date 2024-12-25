@@ -81,7 +81,7 @@ DeckCard.propTypes = {
 function DeckList({ decks, onSelect }) {
   if (decks.length === 0) {
     return (
-      <div className="text-center text-lg text-black">
+      <div className="text-lg text-black">
         No decks available. Start by creating your first deck!
       </div>
     );

@@ -13,6 +13,8 @@ import Delete from "./components/Delete";
 import Update from "./components/Update";
 import Select from "./components/Select";
 import ScrollToTop from "./components/ScrollToTop";
+import Export from "./components/Export";
+import Import from "./components/Import";
 
 function App() {
   const [decks, setDecks] = useState([]); // Initialize as an empty array
@@ -74,6 +76,8 @@ function App() {
           path="/delete"
           element={<Delete setDecks={setDecks} decks={decks} />}
         />
+        <Route path="/export" element={<Export />} />
+        <Route path="/import" element={<Import setDecks={setDecks} />} />
         <Route path="/guide" element={<Guide />} />
       </Routes>
       <Footer />

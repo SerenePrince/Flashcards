@@ -34,7 +34,7 @@ function Delete({ decks, setDecks }) {
                 key={deck.id}
                 className="mb-4 p-4 border rounded-lg flex justify-between items-center bg-gradient-to-r from-lightlavender to-lightpink shadow-lg"
               >
-                <span>{deck.title + " : " + deck.description}</span>
+                <span>{deck.title + ": " + deck.description}</span>
                 <button
                   onClick={() => handleDeleteDeck(deck.id)}
                   className="hover:bg-lightred p-2 rounded-lg transition-all duration-200 ease-in-out"

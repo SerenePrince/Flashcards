@@ -25,7 +25,7 @@ function Select({ decks }) {
                 onClick={() => handleSelectDeck(deck.id)}
                 className="mb-4 p-4 border rounded-lg flex justify-between items-center bg-gradient-to-r from-lightlavender to-lightpink shadow-lg cursor-pointer"
               >
-                <span>{deck.title + " : " + deck.description}</span>
+                <span>{deck.title + ": " + deck.description}</span>
                 <span className="text-sm">Click to Edit</span>
               </li>
             ))}

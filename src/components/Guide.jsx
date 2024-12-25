@@ -47,7 +47,7 @@ function Guide() {
   return (
     <div className="text-white py-12 px-8 bg-black">
       <div className="max-w-[80%] mx-auto">
-        <h1 className="text-4xl font-bold text-center mb-12 text-blue-400 tracking-wide">
+        <h1 className="text-4xl font-bold text-center mb-12 tracking-wide">
           Comprehensive Guide to Your Flashcard App
         </h1>
 
@@ -67,29 +67,44 @@ function Guide() {
                 desc: "Step-by-step guide to creating and saving your first flashcard set.",
               },
               {
-                href: "#library",
-                text: "Library",
-                desc: "Manage your decks: create, import, export, or update them.",
+                href: "#update-deck",
+                text: "Update a Deck",
+                desc: "How to modify and improve your existing decks.",
+              },
+              {
+                href: "#delete-deck",
+                text: "Delete a Deck",
+                desc: "Instructions for removing a deck from the app.",
+              },
+              {
+                href: "#import-deck",
+                text: "Import a Deck",
+                desc: "Learn how to import decks using a JSON format.",
+              },
+              {
+                href: "#export-deck",
+                text: "Export a Deck",
+                desc: "How to back up and share your decks.",
               },
               {
                 href: "#save",
-                text: "Save",
+                text: "Save Decks",
                 desc: "Learn about how and where your decks are stored for safety.",
               },
               {
                 href: "#controls",
                 text: "Controls",
-                desc: "Explore key controls and shortcuts for better navigation.",
+                desc: "Learn about the navigation and answer-revealing controls for flashcards.",
               },
               {
-                href: "#spaced-repetition",
-                text: "Spaced Repetition",
-                desc: "Understand the science behind this powerful learning technique.",
+                href: "#spaced",
+                text: "Spaced Learning",
+                desc: "What is spaced learning and what does it do?",
               },
             ].map((row, index) => (
               <tr key={index}>
                 <td className="py-4 px-6">
-                  <a href={row.href} className="text-blue-400 hover:underline">
+                  <a href={row.href} className="text-white hover:underline">
                     {row.text}
                   </a>
                 </td>
@@ -120,20 +135,87 @@ function Guide() {
           </ol>
         </Section>
 
-        <Section id="library" title="Library">
-          <p>
-            The <strong>Library</strong> is your centralized hub for deck
-            management:
-          </p>
-          <ul className="list-disc ml-8 space-y-2 text-white">
-            <li>Create new decks for your study sessions.</li>
-            <li>Delete or update existing decks as needed.</li>
-            <li>Import decks using the provided JSON template format.</li>
-            <li>Export your decks to share or back up your progress.</li>
-          </ul>
+        <Section id="update-deck" title="Update a Deck">
+          <p>To update an existing deck, follow these steps:</p>
+          <ol className="list-decimal ml-8 space-y-2 text-white">
+            <li>
+              Go to the <strong>Library</strong> section from the main menu.
+            </li>
+            <li>
+              Click the <strong>Update Deck</strong> button.
+            </li>
+            <li>
+              Modify the <strong>title</strong>, <strong>description</strong>,
+              or add/remove cards as needed.
+            </li>
+            <li>
+              Click <strong>Save Deck</strong> to save your changes.
+            </li>
+          </ol>
         </Section>
 
-        <Section id="save" title="Save">
+        <Section id="delete-deck" title="Delete a Deck">
+          <p>To delete a deck, follow these steps:</p>
+          <ol className="list-decimal ml-8 space-y-2 text-white">
+            <li>
+              Go to the <strong>Library</strong> section from the main menu.
+            </li>
+            <li>
+              Click the <strong>Delete Deck</strong> button.
+            </li>
+            <li>Select the trash icon next to the deck you want deleted.</li>
+          </ol>
+        </Section>
+
+        <Section id="import-deck" title="Import a Deck">
+          <p>Follow these steps to import a deck:</p>
+          <ol className="list-decimal ml-8 space-y-2 text-white">
+            <li>
+              Go to the <strong>Library</strong> section from the main menu.
+            </li>
+            <li>
+              Click the <strong>Import Deck</strong> button.
+            </li>
+            <li>Select a valid JSON file that contains your deck data.</li>
+            <li>
+              Click <strong>Import</strong> to upload the deck.
+            </li>
+            <li>Your imported deck will appear in your Library.</li>
+          </ol>
+          <p>Here&apos;s an example of the JSON format for importing decks:</p>
+          <pre className="bg-gray-800 text-white p-4 rounded-md overflow-x-auto">
+            {`{
+  "title": "Deck Title",
+  "description": "Optional description of the deck",
+  "cards": [
+    {
+      "question": "What is the capital of France?",
+      "answer": "Paris"
+    },
+    {
+      "question": "What is the square root of 16?",
+      "answer": "4"
+    }
+  ]
+}`}
+          </pre>
+        </Section>
+
+        <Section id="export-deck" title="Export a Deck">
+          <p>To export a deck, follow these steps:</p>
+          <ol className="list-decimal ml-8 space-y-2 text-white">
+            <li>
+              Go to the <strong>Library</strong> section from the main menu.
+            </li>
+            <li>
+              Click the <strong>Export Deck</strong> button.
+            </li>
+            <li>Select the decks you want exported.</li>
+            <li>Your deck will be downloaded as a JSON file.</li>
+          </ol>
+        </Section>
+
+        <Section id="save" title="Save Settings">
           <p>
             Your flashcards are securely stored locally in your browser. Key
             tips:
@@ -144,37 +226,50 @@ function Guide() {
               issues.
             </li>
             <li>Export your decks regularly to back up your progress.</li>
+            <li>
+              All data is stored in your browser&apos;s local storage or
+              IndexedDB for fast retrieval.
+            </li>
           </ul>
         </Section>
 
         <Section id="controls" title="Controls">
-          <p>Master these controls for seamless interaction:</p>
+          <p>
+            Navigate and interact with your flashcards using the following
+            controls:
+          </p>
           <ul className="list-disc ml-8 space-y-2 text-white">
             <li>
-              Use the <strong>Next</strong> and <strong>Previous</strong>{" "}
-              buttons to navigate between cards.
+              Use the onscreen <strong>Next</strong> and{" "}
+              <strong>Previous</strong> buttons to move between flashcards.
             </li>
             <li>
-              Press the <strong>Spacebar</strong> to flip a card and reveal the
+              Hover over a flashcard to reveal the <strong>answer</strong>.
+            </li>
+            <li>
+              Use the <strong>left and right arrow keys</strong> to navigate
+              through the cards.
+            </li>
+            <li>
+              Hold down the <strong>spacebar</strong> to instantly reveal the
               answer.
             </li>
           </ul>
         </Section>
 
-        <Section id="spaced-repetition" title="Spaced Repetition">
+        <Section id="spaced" title="The Power of Spaced Learning">
           <p>
-            Spaced repetition enhances memory retention by revisiting
-            information at calculated intervals, just before it&apos;s
-            forgotten. This method is scientifically proven to:
-          </p>
-          <ul className="list-disc ml-8 space-y-2 text-white">
-            <li>Improve recall and reinforce learning efficiently.</li>
-            <li>Reduce cognitive load by optimizing study time.</li>
-            <li>Align with the brain&apos;s natural learning rhythms.</li>
-          </ul>
-          <p>
-            Use this feature in your flashcard app to maximize your learning
-            potential!
+            Spaced learning is a powerful technique that leverages the natural
+            process of memory retention. Unlike cramming, spaced learning
+            involves reviewing material over increasing intervals, which helps
+            reinforce information in your long-term memory. By revisiting
+            content multiple times, you strengthen neural connections, making it
+            easier to recall when needed. This method optimizes study time,
+            reduces cognitive fatigue, and ensures that what you learn sticks.
+            Whether you&apos;re preparing for an exam or mastering a new
+            subject, incorporating spaced learning into your routine can
+            dramatically improve your ability to retain and apply knowledge over
+            time.
           </p>
         </Section>
       </div>

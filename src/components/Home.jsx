@@ -9,43 +9,40 @@ import {
 import { FaRepeat } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
-// Reusable button styling as a CSS class for maintainability
-const buttonStyles =
-  "py-2 px-6 rounded-lg shadow-md transition-all duration-200 ease-in-out transform hover:scale-105";
-
 function IntroSection() {
   return (
-    <section className="bg-gradient-to-r from-lightred via-lightorange to-lightyellow py-6 px-6 flex items-center">
+    <section className="bg-gradient-to-r from-lightred via-lightorange to-lightyellow py-6 px-6 items-center">
       <div className="flex flex-col lg:flex-row justify-between items-center max-w-[75%] mx-auto">
         <div className="flex flex-col text-left lg:mr-8 mb-6 lg:mb-0">
           <h1 className="text-3xl font-bold mb-4 text-black">
             Build Flashcards That Match Your Learning Style
           </h1>
           <p className="text-lg text-black">
-            Easily create custom flashcards tailored to your learning style.
-            Whether you&apos;re preparing for an exam or exploring new topics,
-            our intuitive tool helps you stay focused, organized, and motivated.
+            Creating custom flashcards has never been easier. Whether
+            you&apos;re preparing for an exam or diving into a new subject,
+            flashcards help you stay organized, motivated, and in control of
+            your learning journey. It&apos;s time to make learning fun!
           </p>
-          <Link to="/create">
-            <button
-              className={`mt-4 bg-gradient-to-r from-lightorange to-lightyellow text-black hover:from-lightyellow hover:to-lightgreen ${buttonStyles}`}
+          <div className="flex justify-start">
+            <Link
+              to="/library"
+              className="mt-4 bg-gradient-to-r from-lightorange to-lightyellow text-black py-2 px-6 rounded-lg shadow-md transition-all duration-200 ease-in-out transform hover:scale-105 inline-block whitespace-nowrap"
             >
               Start Creating Your Decks Now
-            </button>
-          </Link>
+            </Link>
+          </div>
         </div>
 
         <Flashcard
           question={"Write down your questions"}
           answer={"See your answers"}
+          isFlipped={false}
           gradient={["from-lightgreen to-lightblue"]}
-          className="w-full lg:w-auto"
         />
       </div>
     </section>
   );
 }
-
 function FeatureSection({
   title,
   description,
@@ -62,13 +59,14 @@ function FeatureSection({
         <div className="flex flex-col text-center lg:text-left">
           <h1 className="text-3xl font-bold mb-4 text-black">{title}</h1>
           <p className="text-lg text-black mb-4">{description}</p>
-          <Link to={link}>
-            <button
-              className={`py-2 bg-gradient-to-r ${buttonGradient} text-black ${buttonStyles}`}
+          <div className="flex justify-start">
+            <Link
+              to={link}
+              className={`flex py-2 px-6 text-black rounded-lg shadow-md transition-all duration-200 ease-in-out transform hover:scale-105 bg-gradient-to-r ${buttonGradient}`}
             >
               {buttonText}
-            </button>
-          </Link>
+            </Link>
+          </div>
         </div>
       </div>
     </section>
@@ -91,9 +89,9 @@ function Home() {
       <IntroSection />
 
       <FeatureSection
-        title="Repetition Legitimises"
-        description="Harness the power of repetition for long-term retention. With spaced repetition, our flashcards ensure that you remember key information when you need it most, making learning more efficient and effective."
-        link="/guide#spaced-repetition"
+        title="Repetition Legitimizes Learning"
+        description="Unlock the secret to long-term retention. With spaced repetition, our flashcards ensure that you remember crucial information at just the right time—transforming your study sessions into highly effective learning experiences."
+        link="/guide#spaced"
         buttonText="Learn How Spaced Repetition Helps You"
         icon={FaRepeat}
         background="bg-gradient-to-r from-lightorange via-lightyellow to-lightgreen"
@@ -102,8 +100,8 @@ function Home() {
 
       <FeatureSection
         title="Create Flashcards in Minutes"
-        description="Create flashcards in just a few minutes with an easy-to-use process. Simply enter your questions and answers, and you're ready to start. No complicated steps—just pure learning simplicity."
-        link="/library"
+        description="Need flashcards fast? Create your own custom decks in just minutes. With an easy-to-use interface, simply add questions and answers, and you're all set—no complex steps, just pure learning simplicity."
+        link="/create"
         buttonText="Start Creating Now"
         icon={FaFastForward}
         background="bg-gradient-to-r from-lightyellow via-lightgreen to-lightblue"
@@ -112,7 +110,7 @@ function Home() {
 
       <FeatureSection
         title="Your Decks, Always Safe"
-        description="Your flashcards are securely saved in your browser, giving you quick access whenever you need them. You can also back up your decks to ensure your learning progress is always safe."
+        description="Never worry about losing your progress. Your flashcards are saved securely in your browser for instant access whenever you need them. Plus, you can back up your decks to keep your learning progress safe and sound."
         link="/guide#save"
         buttonText="Keep Your Decks Safe"
         icon={FaSave}
@@ -121,10 +119,10 @@ function Home() {
       />
 
       <FeatureSection
-        title="Effortless Deck Importing"
-        description="Easily import your existing decks with our simple JSON template. Just format your files and upload as many decks as you need—no hassle."
-        link="/import"
-        buttonText="Import Your Flashcards Now"
+        title="Seamless Deck Management"
+        description="Easily import your existing flashcards or export your decks to keep your study materials organized. Whether you're starting fresh or bringing in data from other sources, our intuitive platform ensures your decks are always accessible and up-to-date."
+        link="/guide#import-deck"
+        buttonText="Learn How to Manage Your Decks"
         icon={FaFileImport}
         background="bg-gradient-to-r from-lightblue via-lightpurple to-lightlavender"
         buttonGradient="from-lightpurple to-lightlavender"
@@ -132,7 +130,7 @@ function Home() {
 
       <FeatureSection
         title="Start Learning Today"
-        description="Start creating or importing your first deck today and discover how simple and effective studying can be with a tool designed for your success."
+        description="It's time to stop procrastinating. Start creating your flashcards or import your first deck today and see how simple and powerful studying can be with the right tools in your hands."
         link="/guide"
         buttonText="Create Your First Deck"
         icon={FaFlagCheckered}

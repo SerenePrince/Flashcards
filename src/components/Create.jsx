@@ -42,7 +42,7 @@ function Create({ setDecks }) {
       (card) => !card.question.trim() || !card.answer.trim()
     );
     if (invalidCards.length > 0) {
-      setError("Each card must have both a question and an answer.");
+      setError("Each card must have a question and an answer.");
       return;
     }
 

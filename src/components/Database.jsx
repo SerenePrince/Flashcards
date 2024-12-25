@@ -92,3 +92,50 @@ export const deleteDeck = async (deckId) => {
     throw new Error(`Failed to delete deck with ID ${deckId}`);
   }
 };
+
+// Export all decks as a JSON file
+export const exportDecks = async () => {
+  try {
+    const db = await initDB();
+    const decks = await db.getAll("decks");
+
+    // Create a Blob from the decks array
+    const blob = new Blob([JSON.stringify(decks, null, 2)], {
+      type: "application/json",
+    });
+
+    // Create a link to download the file
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "decks.json";
+
+    // Trigger the download
+    link.click();
+  } catch (error) {
+    console.error("Error exporting decks:", error);
+    throw new Error("Failed to export decks to a file");
+  }
+};
+
+// Import decks from a JSON file
+export const importDecks = async (file) => {
+  try {
+    const db = await initDB();
+
+    // Read the file content
+    const fileContent = await file.text();
+
+    // Parse the file content to JSON
+    const decks = JSON.parse(fileContent);
+
+    // Save decks to IndexedDB
+    const tx = db.transaction("decks", "readwrite");
+    decks.forEach((deck) => tx.store.put(deck));
+    await tx.done;
+
+    console.log("Decks imported successfully");
+  } catch (error) {
+    console.error("Error importing decks:", error);
+    throw new Error("Failed to import decks from the file");
+  }
+};
