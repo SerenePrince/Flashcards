@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getDecks } from "./Database";
+import { getDecks } from "./Database.jsx";
 import { FaDownload } from "react-icons/fa";
 
 function Export() {

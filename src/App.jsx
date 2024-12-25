@@ -1,20 +1,20 @@
 import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import Header from "./components/Header";
-import Home from "./components/Home";
-import Decks from "./components/Decks";
-import Create from "./components/Create";
-import Deck from "./components/Deck";
-import Guide from "./components/Guide";
-import Footer from "./components/Footer";
-import { getDecks, saveDecks } from "./components/Database";
+import Header from "./components/Header.jsx";
+import Home from "./components/Home.jsx";
+import Decks from "./components/Decks.jsx";
+import Create from "./components/Create.jsx";
+import Deck from "./components/Deck.jsx";
+import Guide from "./components/Guide.jsx";
+import Footer from "./components/Footer.jsx";
+import { getDecks, saveDecks } from "./components/Database.jsx";
 import axios from "axios";
-import Delete from "./components/Delete";
-import Update from "./components/Update";
-import Select from "./components/Select";
-import ScrollToTop from "./components/ScrollToTop";
-import Export from "./components/Export";
-import Import from "./components/Import";
+import Delete from "./components/Delete.jsx";
+import Update from "./components/Update.jsx";
+import Select from "./components/Select.jsx";
+import ScrollToTop from "./components/ScrollToTop.jsx";
+import Export from "./components/Export.jsx";
+import Import from "./components/Import.jsx";
 
 function App() {
   const [decks, setDecks] = useState([]); // Initialize as an empty array

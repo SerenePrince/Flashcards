@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import Flashcard from "./Flashcard";
+import Flashcard from "./Flashcard.jsx";
 import { useState, useEffect, useCallback } from "react";
 
 function Deck({ cards }) {

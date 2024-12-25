@@ -1,4 +1,4 @@
-import { FaGithub, FaLinkedin, FaFolder } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 function Footer() {
   return (
@@ -26,22 +26,14 @@ function Footer() {
             <FaLinkedin />
           </a>
           <a
-            href="https://sereneprince.github.io/Portfolio-2025/"
+            href="mailto:noahparknguyen@gmail.com"
             target="_blank"
             rel="noopener noreferrer"
             className="text-2xl hover:text-lightblue transition-colors duration-300"
           >
-            <FaFolder />
+            <FaEnvelope />
           </a>
         </div>
-
-        {/* Contact Info */}
-        <p className="text-sm mb-4">
-          Have questions or want to collaborate? Reach out to me at{" "}
-          <a href="mailto:noahparknguyen@gmail.com" className="text-lightblue">
-            noahparknguyen@gmail.com
-          </a>
-        </p>
 
         {/* Project Info */}
         <p className="text-sm mb-4">

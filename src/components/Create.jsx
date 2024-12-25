@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { saveDecks, getDecks, logAllDecks } from "./Database";
+import { saveDecks, getDecks, logAllDecks } from "./Database.jsx";
 import { FaPlusCircle, FaSave, FaMinusCircle } from "react-icons/fa";
 import PropTypes from "prop-types";
 

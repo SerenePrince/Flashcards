@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { FaTrash } from "react-icons/fa";
-import { getDecks, deleteDeck, logAllDecks } from "./Database"; // Assuming these are defined
+import { getDecks, deleteDeck, logAllDecks } from "./Database.jsx";
 
 function Delete({ decks, setDecks }) {
   // Delete the deck and refresh the deck list

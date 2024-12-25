@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FaUpload } from "react-icons/fa";
-import { importDecks, getDecks } from "./Database"; // Assuming this is the path to your database functions
+import { importDecks, getDecks } from "./Database.jsx"; // Assuming this is the path to your database functions
 import { useNavigate } from "react-router-dom"; // For navigation
 import PropTypes from "prop-types";
 
@@ -128,7 +128,10 @@ function Import({ setDecks }) {
             <h2 className="text-2xl font-semibold mb-4">Imported Decks</h2>
             <ul className="space-y-4">
               {decks.map((deck) => (
-                <li key={deck.id} className="p-4 bg-white shadow-lg rounded-lg">
+                <li
+                  key={deck.id}
+                  className="p-4 bg-gradient-to-r from-lightpink to-lightred text-black shadow-lg rounded-lg"
+                >
                   <h3 className="text-xl font-bold">{deck.title}</h3>
                   <p className="text-sm text-gray-500">{deck.description}</p>
                   <ul className="mt-2 space-y-2">
