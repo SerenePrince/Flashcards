@@ -17,16 +17,28 @@ function HeaderSection() {
             My Flashcard Decks
           </h1>
           <div className="flex flex-wrap gap-4 justify-start">
-            <ActionButton to="/create" icon={FaPlusCircle} text="Create Deck" />
-            <ActionButton to="/select" icon={FaEdit} text="Update Deck" />
-            <ActionButton to="/delete" icon={FaTrashAlt} text="Delete Deck" />
             <ActionButton
-              to="/import"
+              to="/Flashcards/create"
+              icon={FaPlusCircle}
+              text="Create Deck"
+            />
+            <ActionButton
+              to="/Flashcards/select"
+              icon={FaEdit}
+              text="Update Deck"
+            />
+            <ActionButton
+              to="/Flashcards/delete"
+              icon={FaTrashAlt}
+              text="Delete Deck"
+            />
+            <ActionButton
+              to="/Flashcards/import"
               icon={FaFileImport}
               text="Import Decks"
             />
             <ActionButton
-              to="/export"
+              to="/Flashcards/export"
               icon={FaFileExport}
               text="Export Decks"
             />
@@ -59,7 +71,7 @@ function DeckCard({ deck, onSelect }) {
   return (
     <div className="bg-gradient-to-r from-lightblue to-lightpurple shadow-lg rounded-lg p-4 hover:shadow-lg transition-all duration-200 ease-in-out transform hover:scale-105">
       <Link
-        to={`/library/${deck.title}`}
+        to={`/Flashcards/library/${deck.title}`}
         onClick={() => onSelect(deck)}
         className="block text-black"
       >

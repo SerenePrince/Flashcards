@@ -68,7 +68,7 @@ function Create({ setDecks }) {
       setDescription("");
       setCards([{ question: "", answer: "" }]);
 
-      navigate("/library");
+      navigate("/Flashcards/library");
     } catch (error) {
       console.error("Error saving deck:", error);
     }

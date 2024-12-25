@@ -23,7 +23,7 @@ function Header() {
           </li>
           <li>
             <Link
-              to="/library"
+              to="/Flashcards/library"
               className="flex items-center space-x-2 hover:bg-lightblue rounded transition-colors duration-300 p-3"
             >
               <FaFolderOpen size={20} />
@@ -32,7 +32,7 @@ function Header() {
           </li>
           <li>
             <Link
-              to="/guide"
+              to="/Flashcards/guide"
               className="flex items-center space-x-2 hover:bg-lightblue rounded transition-colors duration-300 p-3"
             >
               <FaQuestionCircle size={20} />

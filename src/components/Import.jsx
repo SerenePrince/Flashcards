@@ -76,7 +76,7 @@ function Import({ setDecks }) {
         setDecks(updatedDecks); // Update the global decks state
 
         // Redirect to the library page
-        navigate("/library");
+        navigate("/Flashcards/library");
       } catch (error) {
         setError("Failed to import decks.");
         console.error("Failed to import decks: " + error);

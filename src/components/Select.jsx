@@ -7,7 +7,7 @@ function Select({ decks }) {
   // Handle deck selection and navigate to update page
   const handleSelectDeck = (deckId) => {
     if (!deckId) return; // Guard against invalid IDs
-    navigate(`/update/${deckId}`);
+    navigate(`/Flashcards/update/${deckId}`);
   };
 
   return (

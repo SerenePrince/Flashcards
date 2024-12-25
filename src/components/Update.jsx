@@ -87,7 +87,7 @@ function Update({ setDecks }) {
       const updatedDecks = await getDecks();
       setDecks(updatedDecks);
 
-      navigate("/library");
+      navigate("/Flashcards/library");
     } catch (error) {
       console.error("Error updating deck:", error);
       setError("Failed to update deck.");

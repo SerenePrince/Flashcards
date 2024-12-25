@@ -62,23 +62,32 @@ function App() {
       <Routes>
         <Route path="/Flashcards" element={<Home />} />
         <Route
-          path="/library"
+          path="/Flashcards/library"
           element={<Decks decks={decks} setSelectedDeck={setSelectedDeck} />}
         />
         <Route
-          path="/library/:title"
+          path="/Flashcards/library/:title"
           element={<Deck cards={selectedDeck?.cards || []} />}
         />
-        <Route path="/create" element={<Create setDecks={setDecks} />} />
-        <Route path="/select" element={<Select decks={decks} />} />
-        <Route path="/update/:id" element={<Update setDecks={setDecks} />} />
         <Route
-          path="/delete"
+          path="/Flashcards/create"
+          element={<Create setDecks={setDecks} />}
+        />
+        <Route path="/Flashcards/select" element={<Select decks={decks} />} />
+        <Route
+          path="/Flashcards/update/:id"
+          element={<Update setDecks={setDecks} />}
+        />
+        <Route
+          path="/Flashcards/delete"
           element={<Delete setDecks={setDecks} decks={decks} />}
         />
-        <Route path="/export" element={<Export />} />
-        <Route path="/import" element={<Import setDecks={setDecks} />} />
-        <Route path="/guide" element={<Guide />} />
+        <Route path="/Flashcards/export" element={<Export />} />
+        <Route
+          path="/Flashcards/import"
+          element={<Import setDecks={setDecks} />}
+        />
+        <Route path="/Flashcards/guide" element={<Guide />} />
       </Routes>
       <Footer />
     </>
