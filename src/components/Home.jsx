@@ -11,24 +11,24 @@ import { Link } from "react-router-dom";
 
 // Reusable button styling as a CSS class for maintainability
 const buttonStyles =
-  "py-2 px-6 rounded-lg shadow-md transition-all duration-200 ease-in-out transform hover:shadow-lg hover:scale-105";
+  "py-2 px-6 rounded-lg shadow-md transition-all duration-200 ease-in-out transform hover:scale-105";
 
 function IntroSection() {
   return (
-    <section className="bg-lightred py-6 px-6 flex items-center">
+    <section className="bg-gradient-to-r from-lightred via-lightorange to-lightyellow py-6 px-6 flex items-center">
       <div className="flex flex-col lg:flex-row justify-between items-center max-w-[75%] mx-auto">
         <div className="flex flex-col text-left lg:mr-8 mb-6 lg:mb-0">
-          <h1 className="text-3xl font-bold mb-4">
+          <h1 className="text-3xl font-bold mb-4 text-black">
             Build Flashcards That Match Your Learning Style
           </h1>
-          <p className="text-lg">
+          <p className="text-lg text-black">
             Easily create custom flashcards tailored to your learning style.
             Whether you&apos;re preparing for an exam or exploring new topics,
             our intuitive tool helps you stay focused, organized, and motivated.
           </p>
           <Link to="/guide#create-deck">
             <button
-              className={`mt-4 bg-gradient-to-r from-lightorange to-lightyellow ${buttonStyles}`}
+              className={`mt-4 bg-gradient-to-r from-lightorange to-lightyellow text-black hover:from-lightyellow hover:to-lightgreen ${buttonStyles}`}
             >
               Start Creating Your Decks Now
             </button>
@@ -56,15 +56,15 @@ function FeatureSection({
   buttonGradient,
 }) {
   return (
-    <section className={`py-12 px-6 ${background}`}>
+    <section className={`py-12 px-6 ${background} bg-opacity-80`}>
       <div className="flex flex-col lg:flex-row items-center max-w-[80%] mx-auto">
         <Icon className="text-7xl mb-6 lg:mb-0 lg:mr-10" />
         <div className="flex flex-col text-center lg:text-left">
-          <h1 className="text-3xl font-bold mb-4">{title}</h1>
-          <p className="text-lg mb-4">{description}</p>
+          <h1 className="text-3xl font-bold mb-4 text-black">{title}</h1>
+          <p className="text-lg text-black mb-4">{description}</p>
           <Link to={link}>
             <button
-              className={`py-2 bg-gradient-to-r ${buttonGradient} ${buttonStyles}`}
+              className={`py-2 bg-gradient-to-r ${buttonGradient} text-black ${buttonStyles}`}
             >
               {buttonText}
             </button>
@@ -96,7 +96,7 @@ function Home() {
         link="/guide#spaced-repetition"
         buttonText="Learn How Spaced Repetition Helps You"
         icon={FaRepeat}
-        background="bg-lightorange"
+        background="bg-gradient-to-r from-lightorange via-lightyellow to-lightgreen"
         buttonGradient="from-lightyellow to-lightgreen"
       />
 
@@ -106,7 +106,7 @@ function Home() {
         link="/create"
         buttonText="Start Creating Now"
         icon={FaFastForward}
-        background="bg-lightyellow"
+        background="bg-gradient-to-r from-lightyellow via-lightgreen to-lightblue"
         buttonGradient="from-lightgreen to-lightblue"
       />
 
@@ -116,7 +116,7 @@ function Home() {
         link="/guide#save"
         buttonText="Keep Your Decks Safe"
         icon={FaSave}
-        background="bg-lightgreen"
+        background="bg-gradient-to-r from-lightgreen via-lightblue to-lightpurple"
         buttonGradient="from-lightblue to-lightpurple"
       />
 
@@ -126,7 +126,7 @@ function Home() {
         link="/import"
         buttonText="Import Your Flashcards Now"
         icon={FaFileImport}
-        background="bg-lightblue"
+        background="bg-gradient-to-r from-lightblue via-lightpurple to-lightlavender"
         buttonGradient="from-lightpurple to-lightlavender"
       />
 
@@ -136,7 +136,7 @@ function Home() {
         link="/library"
         buttonText="Create Your First Deck"
         icon={FaFlagCheckered}
-        background="bg-lightpurple"
+        background="bg-gradient-to-r from-lightpurple via-lightlavender to-lightpink"
         buttonGradient="from-lightlavender to-lightpink"
       />
     </div>

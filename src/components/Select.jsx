@@ -11,7 +11,7 @@ function Select({ decks }) {
   };
 
   return (
-    <div className="bg-lightpurple">
+    <div className="bg-gradient-to-r from-lightpurple to-lightblue">
       <div className="text-black p-6 max-w-4xl mx-auto">
         <h1 className="text-3xl font-bold mb-4">Select Deck to Update</h1>
 
@@ -23,9 +23,10 @@ function Select({ decks }) {
               <li
                 key={deck.id}
                 onClick={() => handleSelectDeck(deck.id)}
-                className="mb-4 p-4 border border-gray-300 rounded-lg bg-lightlavender hover:bg-lightblue cursor-pointer"
+                className="mb-4 p-4 border rounded-lg flex justify-between items-center bg-gradient-to-r from-lightlavender to-lightpink shadow-lg cursor-pointer"
               >
                 <span>{deck.title + " : " + deck.description}</span>
+                <span className="text-sm">Click to Edit</span>
               </li>
             ))}
           </ul>

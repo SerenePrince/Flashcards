@@ -10,10 +10,12 @@ import {
 
 function HeaderSection() {
   return (
-    <section className="bg-lightlavender py-6 px-6">
+    <section className="bg-gradient-to-r from-lightlavender via-lightpurple to-lightpink py-6 px-6">
       <div className="flex flex-col items-center max-w-[70%] mx-auto w-full">
         <div className="text-left w-full">
-          <h1 className="text-3xl font-bold mb-4">My Flashcard Decks</h1>
+          <h1 className="text-3xl font-bold mb-4 text-black">
+            My Flashcard Decks
+          </h1>
           <div className="flex flex-wrap gap-4 justify-start">
             <ActionButton to="/create" icon={FaPlusCircle} text="Create Deck" />
             <ActionButton to="/select" icon={FaEdit} text="Update Deck" />
@@ -55,11 +57,11 @@ ActionButton.propTypes = {
 
 function DeckCard({ deck, onSelect }) {
   return (
-    <div className="bg-gradient-to-r from-lightblue to-lightpurple shadow-lg rounded-lg p-4 hover:shadow-xl transition-all duration-200">
+    <div className="bg-gradient-to-r from-lightblue to-lightpurple shadow-lg rounded-lg p-4 hover:shadow-lg transition-all duration-200 ease-in-out transform hover:scale-105">
       <Link
         to={`/library/${deck.title}`}
         onClick={() => onSelect(deck)}
-        className="block text-black hover:text-darkblue"
+        className="block text-black"
       >
         <h3 className="text-xl font-bold">{deck.title}</h3>
         <p className="text-lg mt-2">{deck.description}</p>
@@ -79,7 +81,7 @@ DeckCard.propTypes = {
 function DeckList({ decks, onSelect }) {
   if (decks.length === 0) {
     return (
-      <div className="text-center text-lg text-gray-500">
+      <div className="text-center text-lg text-black">
         No decks available. Start by creating your first deck!
       </div>
     );
@@ -118,9 +120,11 @@ function Decks({ decks, setSelectedDeck }) {
   return (
     <div className="text-black">
       <HeaderSection />
-      <section className="bg-lightpink py-12 px-6">
+      <section className="bg-gradient-to-r from-lightpink via-lightpurple to-lightlavender py-12 px-6">
         <div className="max-w-[70%] mx-auto">
-          <h2 className="text-2xl font-semibold mb-4">Your Library</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-black">
+            Your Library
+          </h2>
           <DeckList decks={decks} onSelect={setSelectedDeck} />
         </div>
       </section>

@@ -51,12 +51,12 @@ function Deck({ cards }) {
 
   if (!cards || cards.length === 0) {
     return (
-      <p className="text-center text-lg text-gray-500">No cards available.</p>
+      <p className="text-center text-lg text-lightgray">No cards available.</p>
     );
   }
 
   const buttonClass =
-    "rounded bg-lightpurple px-4 py-2 disabled:bg-gray-300 disabled:cursor-not-allowed bg-gradient-to-r from-lightblue to-lightpurple";
+    "rounded bg-lightpurple px-4 py-2 disabled:bg-lightgray disabled:cursor-not-allowed bg-gradient-to-r from-lightblue to-lightpurple text-black";
 
   return (
     <div className="flex flex-col items-center">
@@ -84,7 +84,7 @@ function Deck({ cards }) {
           Next
         </button>
       </div>
-      <p className="mt-2">
+      <p className="mt-2 text-white">
         Card {currentCardIndex + 1} of {cards.length}
       </p>
     </div>

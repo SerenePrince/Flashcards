@@ -21,7 +21,7 @@ function Delete({ decks, setDecks }) {
   };
 
   return (
-    <div className="bg-lightpurple">
+    <div className="bg-gradient-to-r from-lightpurple to-lightblue">
       <div className="text-black p-6 max-w-4xl mx-auto">
         <h1 className="text-3xl font-bold mb-4">Delete Flashcard Decks</h1>
 
@@ -32,12 +32,12 @@ function Delete({ decks, setDecks }) {
             {decks.map((deck) => (
               <li
                 key={deck.id}
-                className="mb-4 p-4 border rounded-lg flex justify-between items-center bg-lightlavender"
+                className="mb-4 p-4 border rounded-lg flex justify-between items-center bg-gradient-to-r from-lightlavender to-lightpink shadow-lg"
               >
                 <span>{deck.title + " : " + deck.description}</span>
                 <button
                   onClick={() => handleDeleteDeck(deck.id)}
-                  className="hover:bg-lightred p-1 rounded"
+                  className="hover:bg-lightred p-2 rounded-lg transition-all duration-200 ease-in-out"
                 >
                   <FaTrash className="text-xl" />
                 </button>

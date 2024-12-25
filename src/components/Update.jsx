@@ -55,6 +55,13 @@ function Update({ setDecks }) {
       return;
     }
 
+    // Check if there are no cards in the deck
+    if (cards.length === 0) {
+      setError("A deck must have at least one card.");
+      return;
+    }
+
+    // Validate that each card has both a question and an answer
     const invalidCards = cards.filter(
       (card) => !card.question.trim() || !card.answer.trim()
     );
@@ -88,7 +95,7 @@ function Update({ setDecks }) {
   };
 
   return (
-    <div className="bg-lightpurple">
+    <div className="bg-gradient-to-r from-lightpurple to-lightblue">
       <div className="text-black p-6 max-w-4xl mx-auto">
         <h1 className="text-3xl font-bold mb-4">Update Flashcard Deck</h1>
 
@@ -98,10 +105,13 @@ function Update({ setDecks }) {
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="w-full p-2 border rounded-lg"
+            className={`w-full p-2 border rounded-lg ${
+              error && !title.trim() ? "border-lightred" : ""
+            }`}
             placeholder="Enter the deck title"
           />
         </div>
+
         <div className="mb-4">
           <label className="block text-lg font-medium mb-2">Description</label>
           <textarea
@@ -111,21 +121,23 @@ function Update({ setDecks }) {
             placeholder="Enter a description for the deck"
           ></textarea>
         </div>
+
         <div>
           <h2 className="text-2xl font-bold mb-4">Flashcards</h2>
           {cards.map((card, index) => (
             <div
               key={index}
-              className="mb-4 p-4 border rounded-lg relative bg-lightlavender"
+              className="mb-4 p-4 border rounded-lg relative bg-gradient-to-r from-lightlavender to-lightpink shadow-lg"
             >
               <div className="absolute top-2 right-2">
                 <button
                   onClick={() => handleRemoveCard(index)}
-                  className="text-red-500 hover:text-red-700"
+                  className="hover:text-lightred p-1"
                 >
                   <FaMinusCircle className="text-xl" />
                 </button>
               </div>
+
               <div className="mb-2">
                 <label className="block text-lg font-medium mb-2">
                   Question
@@ -140,6 +152,7 @@ function Update({ setDecks }) {
                   placeholder="Enter the question"
                 />
               </div>
+
               <div>
                 <label className="block text-lg font-medium mb-2">Answer</label>
                 <input
@@ -154,6 +167,7 @@ function Update({ setDecks }) {
               </div>
             </div>
           ))}
+
           <button
             onClick={handleAddCard}
             className="flex items-center mt-4 py-2 px-4 bg-gradient-to-r from-lightblue to-lightgreen text-black rounded-lg shadow-md hover:shadow-lg transition-all duration-200 ease-in-out transform hover:scale-105"
@@ -161,6 +175,7 @@ function Update({ setDecks }) {
             <FaPlusCircle className="mr-2 text-xl" /> Add Card
           </button>
         </div>
+
         <div className="mt-6 flex items-center">
           <button
             onClick={handleSaveDeck}
@@ -172,7 +187,7 @@ function Update({ setDecks }) {
 
           {/* Display error message next to the save button */}
           {error && (
-            <div className="ml-4 text-red-500 font-semibold">{error}</div>
+            <div className="ml-4 text-black font-semibold">{error}</div>
           )}
         </div>
       </div>
