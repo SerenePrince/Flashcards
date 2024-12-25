@@ -3,7 +3,7 @@ import { openDB } from "idb";
 // Initialize IndexedDB
 const initDB = async () => {
   try {
-    const db = await openDB("FlashcardAppDB", 1, {
+    const db = await openDB("FlashcardsDB", 1, {
       upgrade(db) {
         if (!db.objectStoreNames.contains("decks")) {
           db.createObjectStore("decks", { keyPath: "id", autoIncrement: true });

@@ -34,7 +34,7 @@ function Flashcard({ question, answer, isFlipped, gradient }) {
 Flashcard.propTypes = {
   question: PropTypes.string.isRequired,
   answer: PropTypes.string.isRequired,
-  isFlipped: PropTypes.bool.isRequired,
+  isFlipped: PropTypes.bool,
   gradient: PropTypes.string.isRequired,
 };
 

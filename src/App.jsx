@@ -12,6 +12,7 @@ import axios from "axios";
 import Delete from "./components/Delete";
 import Update from "./components/Update";
 import Select from "./components/Select";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   const [decks, setDecks] = useState([]); // Initialize as an empty array
@@ -29,7 +30,7 @@ function App() {
 
         if (storedDecks.length === 0) {
           // Fetch initial data if IndexedDB is empty
-          const response = await axios.get("/decks.json");
+          const response = await axios.get("/template.json");
 
           // Ensure the fetched data has a decks array
           if (response.data && Array.isArray(response.data.decks)) {
@@ -55,27 +56,26 @@ function App() {
   return (
     <>
       <Header />
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route
-            path="/library"
-            element={<Decks decks={decks} setSelectedDeck={setSelectedDeck} />}
-          />
-          <Route
-            path="/library/:title"
-            element={<Deck cards={selectedDeck?.cards || []} />}
-          />
-          <Route path="/create" element={<Create setDecks={setDecks} />} />
-          <Route path="/select" element={<Select decks={decks} />} />
-          <Route path="/update/:id" element={<Update setDecks={setDecks} />} />
-          <Route
-            path="/delete"
-            element={<Delete setDecks={setDecks} decks={decks} />}
-          />
-          <Route path="/guide" element={<Guide />} />
-        </Routes>
-      </main>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route
+          path="/library"
+          element={<Decks decks={decks} setSelectedDeck={setSelectedDeck} />}
+        />
+        <Route
+          path="/library/:title"
+          element={<Deck cards={selectedDeck?.cards || []} />}
+        />
+        <Route path="/create" element={<Create setDecks={setDecks} />} />
+        <Route path="/select" element={<Select decks={decks} />} />
+        <Route path="/update/:id" element={<Update setDecks={setDecks} />} />
+        <Route
+          path="/delete"
+          element={<Delete setDecks={setDecks} decks={decks} />}
+        />
+        <Route path="/guide" element={<Guide />} />
+      </Routes>
       <Footer />
     </>
   );

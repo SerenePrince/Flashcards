@@ -26,7 +26,7 @@ function IntroSection() {
             Whether you&apos;re preparing for an exam or exploring new topics,
             our intuitive tool helps you stay focused, organized, and motivated.
           </p>
-          <Link to="/guide#create-deck">
+          <Link to="/create">
             <button
               className={`mt-4 bg-gradient-to-r from-lightorange to-lightyellow text-black hover:from-lightyellow hover:to-lightgreen ${buttonStyles}`}
             >
@@ -52,7 +52,7 @@ function FeatureSection({
   link,
   buttonText,
   icon: Icon,
-  background = "bg-lightgray", // Default background if none is passed
+  background = "bg-black", // Default background if none is passed
   buttonGradient,
 }) {
   return (
@@ -103,7 +103,7 @@ function Home() {
       <FeatureSection
         title="Create Flashcards in Minutes"
         description="Create flashcards in just a few minutes with an easy-to-use process. Simply enter your questions and answers, and you're ready to start. No complicated steps—just pure learning simplicity."
-        link="/create"
+        link="/library"
         buttonText="Start Creating Now"
         icon={FaFastForward}
         background="bg-gradient-to-r from-lightyellow via-lightgreen to-lightblue"
@@ -133,7 +133,7 @@ function Home() {
       <FeatureSection
         title="Start Learning Today"
         description="Start creating or importing your first deck today and discover how simple and effective studying can be with a tool designed for your success."
-        link="/library"
+        link="/guide"
         buttonText="Create Your First Deck"
         icon={FaFlagCheckered}
         background="bg-gradient-to-r from-lightpurple via-lightlavender to-lightpink"
