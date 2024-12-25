@@ -14,7 +14,7 @@ function Header() {
         <ul className="flex flex-col sm:flex-row sm:space-x-6 space-y-4 sm:space-y-0 sm:justify-end items-center sm:items-center">
           <li>
             <Link
-              to="/"
+              to="/Flashcards"
               className="flex items-center space-x-2 hover:bg-lightblue rounded transition-colors duration-300 p-3"
             >
               <FaHome size={20} />
