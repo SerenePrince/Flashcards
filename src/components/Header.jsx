@@ -3,19 +3,19 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <header className="p-5 flex justify-between items-center text-white">
+    <header className="bg-darkblue p-5 flex flex-col sm:flex-row justify-between items-center text-white shadow-md">
       {/* Title */}
-      <Link to="/" className="font-bold text-2xl">
+      <Link to="/" className="font-bold text-3xl mb-4 sm:mb-0">
         Flashcards
       </Link>
 
       {/* Navigation */}
-      <nav>
-        <ul className="flex space-x-4">
+      <nav className="w-full">
+        <ul className="flex flex-col sm:flex-row sm:space-x-6 space-y-4 sm:space-y-0 sm:justify-end">
           <li>
             <Link
               to="/"
-              className="flex items-center space-x-1 hover:bg-darkgray rounded transition-colors duration-300 p-2"
+              className="flex items-center space-x-2 hover:bg-lightblue rounded transition-colors duration-300 p-3"
             >
               <FaHome size={20} />
               <span>Home</span>
@@ -24,7 +24,7 @@ function Header() {
           <li>
             <Link
               to="/library"
-              className="flex items-center space-x-1 hover:bg-darkgray rounded transition-colors duration-300 p-2"
+              className="flex items-center space-x-2 hover:bg-lightblue rounded transition-colors duration-300 p-3"
             >
               <FaFolderOpen size={20} />
               <span>Library</span>
@@ -33,7 +33,7 @@ function Header() {
           <li>
             <Link
               to="/guide"
-              className="flex items-center space-x-1 hover:bg-darkgray rounded transition-colors duration-300 p-2"
+              className="flex items-center space-x-2 hover:bg-lightblue rounded transition-colors duration-300 p-3"
             >
               <FaQuestionCircle size={20} />
               <span>Guide</span>

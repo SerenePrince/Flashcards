@@ -4,8 +4,12 @@ import { useEffect } from "react";
 // Reusable Section Component
 const Section = ({ id, title, children }) => (
   <section id={id} className="mb-16">
-    <h2 className="text-3xl font-semibold mb-6">{title}</h2>
-    <div className="text-lg leading-relaxed space-y-6">{children}</div>
+    <h2 className="text-3xl font-semibold mb-6 text-black bg-lightpink px-4 py-2 rounded-md">
+      {title}
+    </h2>
+    <div className="text-lg leading-relaxed space-y-6 text-gray-300">
+      {children}
+    </div>
   </section>
 );
 
@@ -42,21 +46,17 @@ function Guide() {
 
   return (
     <div className="text-white py-12 px-8 bg-black">
-      <div className="max-w-[70%] mx-auto">
-        <h1 className="text-4xl font-bold text-center mb-10">
+      <div className="max-w-[80%] mx-auto">
+        <h1 className="text-4xl font-bold text-center mb-12 text-blue-400">
           Comprehensive Guide to Your Flashcard App
         </h1>
 
         {/* Navigation Table */}
-        <table className="w-full border-collapse mb-12 shadow-lg">
+        <table className="w-full border-collapse mb-12 shadow-lg bg-gray-900 rounded-lg overflow-hidden border border-gray-600">
           <thead>
-            <tr className="bg-gray-800 text-white">
-              <th className="border border-gray-600 py-4 px-6 text-left">
-                Section
-              </th>
-              <th className="border border-gray-600 py-4 px-6 text-left">
-                Description
-              </th>
+            <tr className="bg-lightpink text-black">
+              <th className="py-4 px-6 text-left">Section</th>
+              <th className="py-4 px-6 text-left">Description</th>
             </tr>
           </thead>
           <tbody>
@@ -90,17 +90,15 @@ function Guide() {
               <tr
                 key={index}
                 className={`${
-                  index % 2 === 0 ? "bg-gray-900" : "bg-gray-800"
-                } hover:bg-gray-700`}
+                  index % 2 === 0 ? "bg-gray-800" : "bg-gray-700"
+                } hover:bg-gray-600 transition-colors`}
               >
-                <td className="border border-gray-600 py-4 px-6">
+                <td className="py-4 px-6">
                   <a href={row.href} className="text-blue-400 hover:underline">
                     {row.text}
                   </a>
                 </td>
-                <td className="border border-gray-600 py-4 px-6 text-gray-300">
-                  {row.desc}
-                </td>
+                <td className="py-4 px-6 text-gray-300">{row.desc}</td>
               </tr>
             ))}
           </tbody>

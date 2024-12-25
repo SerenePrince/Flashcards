@@ -27,7 +27,7 @@ function Deck({ cards }) {
           break;
         case " ":
           event.preventDefault();
-          setIsCardFlipped(true);
+          setIsCardFlipped((prevState) => !prevState);
           break;
         default:
           break;
@@ -50,11 +50,13 @@ function Deck({ cards }) {
   }, [changeCard]);
 
   if (!cards || cards.length === 0) {
-    return <p>No cards available.</p>;
+    return (
+      <p className="text-center text-lg text-gray-500">No cards available.</p>
+    );
   }
 
   const buttonClass =
-    "rounded bg-purple px-4 py-2 disabled:bg-gray-300 disabled:cursor-not-allowed bg-gradient-to-r from-blue to-purple";
+    "rounded bg-lightpurple px-4 py-2 disabled:bg-gray-300 disabled:cursor-not-allowed bg-gradient-to-r from-lightblue to-lightpurple";
 
   return (
     <div className="flex flex-col items-center">

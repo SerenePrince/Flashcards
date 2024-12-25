@@ -16,7 +16,7 @@ function HeaderSection() {
           <h1 className="text-3xl font-bold mb-4">My Flashcard Decks</h1>
           <div className="flex flex-wrap gap-4 justify-start">
             <ActionButton to="/create" icon={FaPlusCircle} text="Create Deck" />
-            <ActionButton to="/update" icon={FaEdit} text="Update Deck" />
+            <ActionButton to="/select" icon={FaEdit} text="Update Deck" />
             <ActionButton to="/delete" icon={FaTrashAlt} text="Delete Deck" />
             <ActionButton
               to="/import"
@@ -57,11 +57,11 @@ function DeckCard({ deck, onSelect }) {
   return (
     <div className="bg-gradient-to-r from-lightblue to-lightpurple shadow-lg rounded-lg p-4 hover:shadow-xl transition-all duration-200">
       <Link
-        to={`/library/${deck.name}`}
+        to={`/library/${deck.title}`}
         onClick={() => onSelect(deck)}
         className="block text-black hover:text-darkblue"
       >
-        <h3 className="text-xl font-bold">{deck.name}</h3>
+        <h3 className="text-xl font-bold">{deck.title}</h3>
         <p className="text-lg mt-2">{deck.description}</p>
       </Link>
     </div>
@@ -70,28 +70,33 @@ function DeckCard({ deck, onSelect }) {
 
 DeckCard.propTypes = {
   deck: PropTypes.shape({
-    name: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
   }).isRequired,
   onSelect: PropTypes.func.isRequired,
 };
 
 function DeckList({ decks, onSelect }) {
-  return decks.length > 0 ? (
+  if (decks.length === 0) {
+    return (
+      <div className="text-center text-lg text-gray-500">
+        No decks available. Start by creating your first deck!
+      </div>
+    );
+  }
+  return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
       {decks.map((deck, id) => (
         <DeckCard key={id} deck={deck} onSelect={onSelect} />
       ))}
     </div>
-  ) : (
-    <p>No decks available. Start by creating your first deck!</p>
   );
 }
 
 DeckList.propTypes = {
   decks: PropTypes.arrayOf(
     PropTypes.shape({
-      name: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
     })
   ).isRequired,
@@ -99,6 +104,17 @@ DeckList.propTypes = {
 };
 
 function Decks({ decks, setSelectedDeck }) {
+  // If decks are still loading, show a loading spinner or message
+  if (decks === undefined) {
+    return (
+      <div className="text-center py-12">
+        <h2 className="text-2xl font-semibold mb-4">Loading your decks...</h2>
+        <div className="spinner">⏳</div>{" "}
+        {/* Add a spinner component or text */}
+      </div>
+    );
+  }
+
   return (
     <div className="text-black">
       <HeaderSection />

@@ -9,6 +9,10 @@ import {
 import { FaRepeat } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
+// Reusable button styling as a CSS class for maintainability
+const buttonStyles =
+  "py-2 px-6 rounded-lg shadow-md transition-all duration-200 ease-in-out transform hover:shadow-lg hover:scale-105";
+
 function IntroSection() {
   return (
     <section className="bg-lightred py-6 px-6 flex items-center">
@@ -23,7 +27,9 @@ function IntroSection() {
             our intuitive tool helps you stay focused, organized, and motivated.
           </p>
           <Link to="/guide#create-deck">
-            <button className="mt-4 py-2 bg-gradient-to-r from-lightorange to-lightyellow px-6 rounded-lg shadow-md transition-all duration-200 ease-in-out transform hover:shadow-lg hover:scale-105">
+            <button
+              className={`mt-4 bg-gradient-to-r from-lightorange to-lightyellow ${buttonStyles}`}
+            >
               Start Creating Your Decks Now
             </button>
           </Link>
@@ -46,7 +52,7 @@ function FeatureSection({
   link,
   buttonText,
   icon: Icon,
-  background,
+  background = "bg-lightgray", // Default background if none is passed
   buttonGradient,
 }) {
   return (
@@ -58,7 +64,7 @@ function FeatureSection({
           <p className="text-lg mb-4">{description}</p>
           <Link to={link}>
             <button
-              className={`py-2 bg-gradient-to-r ${buttonGradient} px-6 rounded-lg shadow-md transition-all duration-200 ease-in-out transform hover:shadow-lg hover:scale-105`}
+              className={`py-2 bg-gradient-to-r ${buttonGradient} ${buttonStyles}`}
             >
               {buttonText}
             </button>
@@ -75,7 +81,7 @@ FeatureSection.propTypes = {
   link: PropTypes.string.isRequired,
   buttonText: PropTypes.string.isRequired,
   icon: PropTypes.elementType.isRequired,
-  background: PropTypes.string.isRequired,
+  background: PropTypes.string,
   buttonGradient: PropTypes.string.isRequired,
 };
 

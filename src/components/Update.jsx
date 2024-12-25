@@ -1,16 +1,38 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { saveDecks, getDecks, logAllDecks } from "./Database";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { getDeckById, updateDeck, getDecks, logAllDecks } from "./Database";
 import { FaPlusCircle, FaSave, FaMinusCircle } from "react-icons/fa";
 import PropTypes from "prop-types";
 
-function Create({ setDecks }) {
+function Update({ setDecks }) {
+  const { id } = useParams();
+  const navigate = useNavigate();
+
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [cards, setCards] = useState([{ question: "", answer: "" }]);
   const [error, setError] = useState(""); // For error message
 
-  const navigate = useNavigate();
+  useEffect(() => {
+    const fetchDeck = async () => {
+      try {
+        const deck = await getDeckById(Number(id));
+        if (deck) {
+          setTitle(deck.title);
+          setDescription(deck.description);
+          setCards(deck.cards || [{ question: "", answer: "" }]);
+        } else {
+          console.error(`Deck with ID ${id} not found.`);
+          setError("Deck not found.");
+        }
+      } catch (error) {
+        console.error("Error fetching deck:", error);
+        setError("Failed to load deck.");
+      }
+    };
+
+    fetchDeck();
+  }, [id]);
 
   const handleAddCard = () => {
     setCards([...cards, { question: "", answer: "" }]);
@@ -43,36 +65,32 @@ function Create({ setDecks }) {
 
     setError(""); // Clear error if validation passes
 
-    const newDeck = {
+    const updatedDeck = {
       title,
       description,
       cards,
     };
 
     try {
-      await saveDecks([newDeck]);
-      console.log("Deck saved successfully");
+      await updateDeck(Number(id), updatedDeck);
+      console.log("Deck updated successfully");
       logAllDecks();
 
       // Update the deck list in the parent component
       const updatedDecks = await getDecks();
       setDecks(updatedDecks);
 
-      // Reset form fields
-      setTitle("");
-      setDescription("");
-      setCards([{ question: "", answer: "" }]);
-
       navigate("/library");
     } catch (error) {
-      console.error("Error saving deck:", error);
+      console.error("Error updating deck:", error);
+      setError("Failed to update deck.");
     }
   };
 
   return (
     <div className="bg-lightpurple">
       <div className="text-black p-6 max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold mb-4">Create a New Flashcard Deck</h1>
+        <h1 className="text-3xl font-bold mb-4">Update Flashcard Deck</h1>
 
         <div className="mb-4">
           <label className="block text-lg font-medium mb-2">Deck Title</label>
@@ -80,7 +98,7 @@ function Create({ setDecks }) {
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="w-full p-2 border  rounded-lg"
+            className="w-full p-2 border rounded-lg"
             placeholder="Enter the deck title"
           />
         </div>
@@ -89,7 +107,7 @@ function Create({ setDecks }) {
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            className="w-full p-2 border  rounded-lg"
+            className="w-full p-2 border rounded-lg"
             placeholder="Enter a description for the deck"
           ></textarea>
         </div>
@@ -103,7 +121,7 @@ function Create({ setDecks }) {
               <div className="absolute top-2 right-2">
                 <button
                   onClick={() => handleRemoveCard(index)}
-                  className="hover:text-lightred p-1"
+                  className="text-red-500 hover:text-red-700"
                 >
                   <FaMinusCircle className="text-xl" />
                 </button>
@@ -118,7 +136,7 @@ function Create({ setDecks }) {
                   onChange={(e) =>
                     handleCardChange(index, "question", e.target.value)
                   }
-                  className="w-full p-2 border  rounded-lg"
+                  className="w-full p-2 border rounded-lg"
                   placeholder="Enter the question"
                 />
               </div>
@@ -130,7 +148,7 @@ function Create({ setDecks }) {
                   onChange={(e) =>
                     handleCardChange(index, "answer", e.target.value)
                   }
-                  className="w-full p-2 border  rounded-lg"
+                  className="w-full p-2 border rounded-lg"
                   placeholder="Enter the answer"
                 />
               </div>
@@ -162,8 +180,8 @@ function Create({ setDecks }) {
   );
 }
 
-Create.propTypes = {
+Update.propTypes = {
   setDecks: PropTypes.func.isRequired,
 };
 
-export default Create;
+export default Update;
