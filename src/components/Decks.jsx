@@ -8,6 +8,11 @@ import {
   FaFileImport,
 } from "react-icons/fa";
 
+/**
+ * Renders the header section for the Decks page, including action buttons for
+ * creating, updating, deleting, importing, and exporting flashcard decks.
+ * @returns {JSX.Element} The rendered HeaderSection component.
+ */
 function HeaderSection() {
   return (
     <section className="bg-gradient-to-r from-lightlavender via-lightpurple to-lightpink py-6 px-6">
@@ -49,6 +54,14 @@ function HeaderSection() {
   );
 }
 
+/**
+ * Renders an individual action button used in the header section.
+ * @param {Object} props - The component props.
+ * @param {string} props.to - The route path for the button link.
+ * @param {React.ElementType} props.icon - The icon component to display.
+ * @param {string} props.text - The text to display on the button.
+ * @returns {JSX.Element} The rendered ActionButton component.
+ */
 function ActionButton({ to, icon: Icon, text }) {
   return (
     <Link
@@ -67,6 +80,16 @@ ActionButton.propTypes = {
   text: PropTypes.string.isRequired,
 };
 
+/**
+ * Displays a single deck card with its title and description.
+ * Allows selection through an onClick handler.
+ * @param {Object} props - The component props.
+ * @param {Object} props.deck - The deck data object.
+ * @param {string} props.deck.title - The title of the deck.
+ * @param {string} props.deck.description - A brief description of the deck.
+ * @param {Function} props.onSelect - Callback when a deck is selected.
+ * @returns {JSX.Element} The rendered DeckCard component.
+ */
 function DeckCard({ deck, onSelect }) {
   return (
     <div className="bg-gradient-to-r from-lightblue to-lightpurple shadow-lg rounded-lg p-4 hover:shadow-lg transition-all duration-200 ease-in-out transform hover:scale-105">
@@ -90,6 +113,13 @@ DeckCard.propTypes = {
   onSelect: PropTypes.func.isRequired,
 };
 
+/**
+ * Renders a list of deck cards or displays a message if no decks are available.
+ * @param {Object} props - The component props.
+ * @param {Array} props.decks - The array of deck objects.
+ * @param {Function} props.onSelect - Callback when a deck is selected.
+ * @returns {JSX.Element} The rendered DeckList component.
+ */
 function DeckList({ decks, onSelect }) {
   if (decks.length === 0) {
     return (
@@ -117,6 +147,14 @@ DeckList.propTypes = {
   onSelect: PropTypes.func.isRequired,
 };
 
+/**
+ * Displays the Decks page, including the header section, loading state,
+ * and a library of flashcard decks.
+ * @param {Object} props - The component props.
+ * @param {Array} props.decks - The array of decks to display.
+ * @param {Function} props.setSelectedDeck - Callback to set the selected deck.
+ * @returns {JSX.Element} The rendered Decks component.
+ */
 function Decks({ decks, setSelectedDeck }) {
   // If decks are still loading, show a loading spinner or message
   if (decks === undefined) {

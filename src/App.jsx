@@ -16,6 +16,23 @@ import ScrollToTop from "./components/ScrollToTop.jsx";
 import Export from "./components/Export.jsx";
 import Import from "./components/Import.jsx";
 
+/**
+ * Main App component that initializes the application, manages global state,
+ * and configures routing.
+ *
+ * Features:
+ * - Fetches and initializes flashcard decks from IndexedDB or a template JSON.
+ * - Implements dynamic routing for viewing, creating, updating, and deleting decks.
+ * - Handles global state for decks and selected deck.
+ *
+ * Dependencies:
+ * - React hooks (`useState`, `useEffect`)
+ * - react-router-dom for navigation
+ * - axios for HTTP requests
+ * - IndexedDB integration for persistent storage
+ *
+ * @component
+ */
 function App() {
   const [decks, setDecks] = useState([]); // Initialize as an empty array
   const [selectedDeck, setSelectedDeck] = useState(null);
