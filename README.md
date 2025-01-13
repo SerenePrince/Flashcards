@@ -1,5 +1,3 @@
----
-
 # **Flashcard Web App**
 
 ![Flashcards](https://github.com/user-attachments/assets/fa10130e-1f26-4c23-b59c-8c4191955ae7)
