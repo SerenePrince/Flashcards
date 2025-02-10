@@ -1,91 +1,71 @@
-# **Flashcard Web App**
+# 🃏 **Flashcard Web App**  
 
-![Flashcards](https://github.com/user-attachments/assets/fa10130e-1f26-4c23-b59c-8c4191955ae7)
+![Flashcards](https://github.com/user-attachments/assets/fa10130e-1f26-4c23-b59c-8c4191955ae7)  
 
-A simple and intuitive flashcard web application that allows users to create, manage, and study custom flashcards. With local data storage, your decks are automatically saved, and you can import/export them using JSON files for backup. Built using **React** and **Tailwind CSS**, this app provides a seamless and personalized studying experience.
+A simple and intuitive **flashcard web app** that lets users create, manage, and study flashcards. Built with **React**, **Tailwind CSS**, and **Vite**, the app supports **local storage for persistence** and allows users to **import/export decks using JSON files**.  
 
-Try it now: [**Flashcards Web App**](https://sereneprince.github.io/Flashcards)
-
----
-
-## ✨ **Features**
-
-- **Create & Manage Flashcard Decks**: Easily create, update, and organize flashcards for efficient learning.  
-- **Local Storage**: Flashcard data is stored directly in your browser, ensuring you don't lose progress between sessions.  
-- **Import/Export Functionality**: Import or export flashcard decks in JSON format, making it easy to save and share your decks.  
-- **Responsive Design**: Fully optimized for both desktop and mobile devices, allowing access to flashcards on the go.  
-- **User-Friendly Interface**: Built with **Tailwind CSS**, the interface is clean, intuitive, and easy to navigate.  
+Try it now: [**Flashcards Web App**](https://sereneprince.github.io/Flashcards)  
 
 ---
 
-## 🚀 **Technologies Used**
+## ✨ **Features**  
 
-- **Frontend**: ReactJS, JavaScript, Tailwind CSS  
-- **Browser Storage**: IndexedDB for local storage persistence  
-- **File Management**: JSON for importing and exporting flashcard decks  
-
----
-
-## 🛠️ **Installation**
-
-To get started, follow these steps:
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/SerenePrince/Flashcards.git
-   ```
-
-2. Navigate to the project directory:
-
-   ```bash
-   cd Flashcards
-   ```
-
-3. Install the required dependencies:
-
-   ```bash
-   npm install
-   ```
-
-4. Start the application:
-
-   ```bash
-   npm start
-   ```
-
-   The app will open in your default browser at `http://localhost:[PORT]`.
+- 📚 **Create & Manage Decks** – Easily add, edit, and delete flashcards.  
+- 💾 **Local Storage** – Flashcard data is saved in the browser, ensuring persistence.  
+- 📥 **Import/Export JSON** – Backup and share decks effortlessly.  
+- 📱 **Responsive UI** – Optimized for both desktop and mobile.  
+- 🎨 **Minimalist Design** – Built with **Tailwind CSS** for a clean and intuitive experience.  
 
 ---
 
-## 📝 **Usage**
+## 🚀 **Tech Stack**  
 
-- **Creating a Flashcard Deck**: Click the "Create New Deck" button to add your flashcards.  
-- **Managing Decks**: You can edit or delete your flashcards using the options next to each deck.  
-- **Importing Decks**: Upload a JSON file containing your flashcards using the "Import" button.  
-- **Exporting Decks**: Export your flashcards as a JSON file to save or share them.
+- **React.js** – Dynamic frontend development.  
+- **Tailwind CSS** – Utility-based styling for a sleek UI.  
+- **IndexedDB** – Local storage for flashcard persistence.  
+- **Vite** – Fast and optimized React build tool.  
 
 ---
 
-## 📸 **Screenshots**
+## 🛠️ **Installation**  
 
-Here are a few screenshots of the app in action:
+Clone the repository and set up the project locally:  
+
+```bash
+git clone https://github.com/SerenePrince/Flashcards.git
+cd Flashcards
+npm install
+npm run dev
+```
+
+The app will be available at **`http://localhost:5173`**.  
+
+---
+
+## 📝 **Usage**  
+
+- **Create Decks** – Click "Create New Deck" to start adding flashcards.  
+- **Manage Decks** – Edit or delete decks as needed.  
+- **Import Decks** – Upload a JSON file to load flashcards.  
+- **Export Decks** – Download decks as JSON for backup or sharing.  
+
+---
+
+## 📸 **Screenshots**  
 
 ![image](https://github.com/user-attachments/assets/42455228-b004-4b0a-8743-cdb243ea0993)  
-![image](https://github.com/user-attachments/assets/1bb2fd98-c4c6-4205-82d8-e2ccf661841c)
+![image](https://github.com/user-attachments/assets/1bb2fd98-c4c6-4205-82d8-e2ccf661841c)  
 
 ---
 
-## 🔮 **Future Improvements**
+## 🔮 **Future Enhancements**  
 
-- **User Authentication**: Add support for saving decks across multiple devices by introducing user authentication.  
-- **Deck Sharing**: Allow users to share their decks with others.  
-- **Spaced Repetition**: Improve the flashcard review system with spaced repetition algorithms for more effective studying.
-
----
-
-## 🤝 **Contributing**
-
-Contributions are always welcome! If you'd like to contribute to this project, feel free to open an issue or submit a pull request.
+- 🔐 **User Authentication** – Sync decks across multiple devices.  
+- 🔗 **Deck Sharing** – Allow users to share decks with others.  
+- 📊 **Spaced Repetition** – Improve studying with intelligent review algorithms.  
 
 ---
+
+## 🤝 **Contributing**  
+
+Contributions are welcome! Feel free to fork the repo, open an issue, or submit a pull request.
